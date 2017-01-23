@@ -12,7 +12,26 @@
 					$.ajax({
 						url: "/company/getProduct?id=" + theID
 					}).done(function(data){
-						$("#content").text(data);						
+						var json = JSON.parse(data);
+						var tbody = document.createElement("tbody");
+						
+						var header = document.createElement("tr");											
+						var th = document.createElement("th");
+						$(th).text("NAME");
+						$(header).append(th);
+						th = document.createElement("th");						
+						$(th).text("PRICE");
+						$(header).append(th);
+						
+						var tr = document.createElement("tr");
+						var td = document.createElement("td");
+						$(td).text(json.name);
+						$(tr).append(td);
+						td = document.createElement("td");
+						$(td).text(json.price);
+						$(tr).append(td);						
+						$('#data tbody').empty().append(header);
+						$('#data tbody').append(tr);
 					});
 				});				
 			});
@@ -29,9 +48,7 @@
 		</table>
 		</br>
 		<table id="data" align="center" border="1">
-			<tr>
-				<td><label id="content"/></td>
-			</tr>			
+			<tbody></tbody>
 		</table>
 	</body>
 	

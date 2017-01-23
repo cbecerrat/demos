@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.json.JSONObject;
+
 @Entity
 public class Product implements Serializable{	
 	private static final long serialVersionUID = 1L;
@@ -83,5 +85,12 @@ public class Product implements Serializable{
 	}
 	public Product(){
 		
+	}
+	public String getProductAsJSON(){
+		JSONObject json = new JSONObject();
+		json.put("id", this.id);
+		json.put("name", this.name);
+		json.put("price", this.price);
+		return json.toString();
 	}
 }

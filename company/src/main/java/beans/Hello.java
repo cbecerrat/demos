@@ -34,6 +34,6 @@ public class Hello {
 		if(null == product){
 			product = new Product();
 		}		
-		return product.toString();
+		return product.getProductAsJSON();
 	}		
 }
