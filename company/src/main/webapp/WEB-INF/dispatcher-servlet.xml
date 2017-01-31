@@ -9,10 +9,6 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
 
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-    	<property name="driverClassName" value="org.sqlite.JDBC"/>
-		<property name="url" value="jdbc:sqlite:file:///C:/Users/IBM_ADMIN/workspace/myDB.db"/>
-	</bean>
 	<context:component-scan base-package="config" />	
 	<mvc:annotation-driven />
 </beans>

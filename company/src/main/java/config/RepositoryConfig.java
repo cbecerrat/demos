@@ -19,13 +19,13 @@ public class RepositoryConfig{
 	@Autowired
 	DataSource dataSource;
 	
-//	@Bean(name = "dataSource")
-//	public DriverManagerDataSource dataSource() {
-//		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
-//		driverManagerDataSource.setDriverClassName("org.sqlite.JDBC");
-//		driverManagerDataSource.setUrl("jdbc:sqlite:file:///C:/Users/IBM_ADMIN/workspace/myDB.db");
-//		return driverManagerDataSource;
-//	}
+	@Bean(name = "dataSource")
+	public DriverManagerDataSource dataSource() {
+		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
+		driverManagerDataSource.setDriverClassName("org.sqlite.JDBC");
+		driverManagerDataSource.setUrl("jdbc:sqlite:file:///C:/Users/IBM_ADMIN/workspace/myDB.db");
+		return driverManagerDataSource;
+	}
 	
 
 	@Bean(name = "hibernateJpaVendorAdapter")

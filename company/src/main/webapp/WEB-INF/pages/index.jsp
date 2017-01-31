@@ -54,7 +54,7 @@
 		<tbody></tbody>
 	</table>
 
-	<div class="container">
+	<div class="container" align="center">
 		<h1>This is secured!</h1>
 		<p>
 			Hello <b><c:out value="${pageContext.request.remoteUser}" /></b>
