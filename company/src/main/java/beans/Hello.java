@@ -46,7 +46,6 @@ public class Hello {
 			model.addObject("msg", "You've been logged out successfully.");
 		}
 		model.setViewName("login");
-
 		return model;
 	}
 }
