@@ -23,7 +23,7 @@ public class RepositoryConfig{
 	public DriverManagerDataSource dataSource() {
 		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
 		driverManagerDataSource.setDriverClassName("org.sqlite.JDBC");
-		driverManagerDataSource.setUrl("jdbc:sqlite:file:///C:/Users/IBM_ADMIN/workspace/myDB.db");
+		driverManagerDataSource.setUrl("jdbc:sqlite:file:///C:/myDB.db");
 		return driverManagerDataSource;
 	}
 	
