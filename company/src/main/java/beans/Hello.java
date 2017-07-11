@@ -16,14 +16,14 @@ public class Hello {
 	@Autowired
 	ProductRepository pr;
 
-	@RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)	
+	@RequestMapping(value = {"/servicing/index" }, method = RequestMethod.GET)	
 	public ModelAndView index() {
 		System.out.println("Here.");
 		ModelAndView model = new ModelAndView("index");
 		return model;
 	}
 
-	@RequestMapping("/getProduct")
+	@RequestMapping("/servicing/getProduct")
 	@ResponseBody
 	public String sayHello(ModelAndView mav, @RequestParam(value = "id") long id) {
 		Product product = pr.findOne(id);
@@ -33,17 +33,17 @@ public class Hello {
 		return product.getProductAsJSON();
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = {"/", "/login"}, method = RequestMethod.GET)
 	public ModelAndView login(@RequestParam(value = "error", required = false) String error,
 			@RequestParam(value = "logout", required = false) String logout) {
 
 		ModelAndView model = new ModelAndView();
 		if (error != null) {
-			model.addObject("error", "Invalid username and password!");
+			model.addObject("error", "Usuario o password inválido!");
 		}
 
 		if (logout != null) {
-			model.addObject("msg", "You've been logged out successfully.");
+			model.addObject("msg", "Has terminado tu sesión.");
 		}
 		model.setViewName("login");
 		return model;

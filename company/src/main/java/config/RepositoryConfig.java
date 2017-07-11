@@ -27,7 +27,6 @@ public class RepositoryConfig{
 		return driverManagerDataSource;
 	}
 	
-
 	@Bean(name = "hibernateJpaVendorAdapter")
 	public HibernateJpaVendorAdapter hibernateJpaVendorAdapter() {
 		HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();

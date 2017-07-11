@@ -13,7 +13,7 @@
 				$("#consultar").click(function(){
 					var theID = $("#id").val();
 					$.ajax({
-						url: "/company/getProduct?id=" + theID
+						url: "/company/servicing/getProduct?id=" + theID
 					}).done(function(data){
 						var json = JSON.parse(data);
 						var tbody = document.createElement("tbody");
