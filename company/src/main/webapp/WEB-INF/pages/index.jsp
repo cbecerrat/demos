@@ -55,13 +55,13 @@
 	</table>
 
 	<div class="container" align="center">
-		<h1>This is secured!</h1>
+		<h1>Esta página está asegurada.</h1>
 		<p>
-			Hello <b><c:out value="${pageContext.request.remoteUser}" /></b>
+			Bienvenido <b><c:out value="${pageContext.request.remoteUser}" /></b>
 		</p>
 		<c:url var="logoutUrl" value="/logout" />
 		<form class="form-inline" action="${logoutUrl}" method="post">
-			<input type="submit" value="Log out" /> <input type="hidden"
+			<input type="submit" value="Cerrar sesión" /> <input type="hidden"
 				name="${_csrf.parameterName}" value="${_csrf.token}" />
 		</form>
 	</div>
