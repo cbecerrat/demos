@@ -1,5 +1,6 @@
 package config;
 
+import javax.servlet.ServletContext;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @EnableJpaRepositories("repositories")
 public class RepositoryConfig{
+	@Autowired 
+	private ServletContext context;
+	
 	@Autowired
 	DataSource dataSource;
 	
@@ -23,7 +27,12 @@ public class RepositoryConfig{
 	public DriverManagerDataSource dataSource() {
 		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
 		driverManagerDataSource.setDriverClassName("org.sqlite.JDBC");
-		driverManagerDataSource.setUrl("jdbc:sqlite:file:///C:/myDB.db");
+		String realPath = "";
+		if(context != null){
+			realPath = context.getRealPath("/WEB-INF/myDB.db");
+			System.out.println("---------------------> " + realPath);
+		}
+		driverManagerDataSource.setUrl("jdbc:sqlite:" + realPath);
 		return driverManagerDataSource;
 	}
 	

@@ -15,10 +15,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	DataSource dataSource;
 	
-	public SecurityConfig() {
-		System.out.println("=============> Security configured.");
-	}
-	
 	@Autowired
 	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
 	  auth.jdbcAuthentication().dataSource(dataSource)
