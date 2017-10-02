@@ -11,27 +11,41 @@
 	<body>
 		<div class="container">
 			<div class="text-center">
-				<img src="resources/party.jpg" style="width: 100%"/>
+				<h3>PartyOnline registro:</h3>
 			</div>
-			</br>
 			<form>
 				<div class="form-group">
 					<label for="usuario">Usuario:</label>
-					<input class="form-control" id="usuario" aria-describedby="emailHelp" placeholder="Tu nombre de usuario">			
+					<input class="form-control" id="usuario" aria-describedby="emailHelp" placeholder="jalfredoj">
 				</div>
+				<div class="form-group">
+					<label for="nombre">Nombre:</label>
+					<input class="form-control" id="nombre" aria-describedby="emailHelp" placeholder="José Alfredo">
+				</div>
+				<div class="form-group">
+					<label for="appelidos">Apellidos:</label>
+					<input class="form-control" id="appelidos" aria-describedby="emailHelp" placeholder="Jiménez">
+				</div>
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="email" class="form-control" id="email" placeholder="ejemplo@mail.com">
+				</div>
+				<div class="form-group">
+					<label for="celular">Celular:</label>
+					<input class="form-control" id="celular" aria-describedby="celularHelp" placeholder="55-5555-5555">
+					<small id="celularHelp" class="form-text text-muted">No compartimos esta información con nadie.</small>
+				</div>				
 				<div class="form-group">
 					<label for="contrasenia">Contraseña:</label>
-					<input type="password" class="form-control" id="contrasenia" placeholder="Contraseña">
-				</div>
-				<div class="text-center">
-					<button type="submit" class="btn btn-primary">Entrar</button>
+					<input type="password" class="form-control" id="contrasenia" placeholder="********">
 				</div>
 				<div class="form-group">
-					</br></br>
-					<a href="registro.html">Registrarme.</a>
-					</br></br>
-					<a href="#">¿Olvidaste tu contraseña?</a>
+					<label for="confirmaContrasenia">Confirmar contraseña:</label>
+					<input type="password" class="form-control" id="confirmaContrasenia" placeholder="********">
 				</div>
+				<div class="text-center">
+					<button type="submit" class="btn btn-primary">Registrarme</button>
+				</div>				
 			</form>
 		</div>
 		
