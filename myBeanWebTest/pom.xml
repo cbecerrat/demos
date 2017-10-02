@@ -34,7 +34,7 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>myBeanResources</groupId>
+			<groupId>com</groupId>
 			<artifactId>myBeanResources</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>

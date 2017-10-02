@@ -27,9 +27,6 @@ public class HelloServlet extends HttpServlet {
 		resp.setContentType("text/html");
 		PrintWriter pw = resp.getWriter();
 		try {			
-//			InitialContext ic = new InitialContext();			
-//			HelloLocal bean = (HelloLocal)ic.lookup("java:global/myBeanTest/HelloLocalBean!beans.HelloLocal");			
-
 			resp.setContentType("text/html");
 			
 			String message = bean.sayHello();			
