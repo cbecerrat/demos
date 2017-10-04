@@ -1,7 +1,5 @@
 package org.jboss.as.quickstarts.kitchensink.controller;
 
-import java.util.logging.Logger;
-
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateful;
 import javax.enterprise.event.Event;
@@ -25,10 +23,7 @@ import org.jboss.as.quickstarts.kitchensink.model.Member;
 @Model
 public class MemberRegistration {
 	private static final Logger logger = Logger.getLogger(MemberRegistration.class);
-	private static final String SEPARATOR = "===========================================================================================";
-
-   @Inject
-   private Logger log;
+	private static final String SEPARATOR = "===========================================================================================";   
 
    @Inject
    private FacesContext facesContext;
@@ -48,7 +43,7 @@ public class MemberRegistration {
    }
 
    public void register() throws Exception {
-      log.info("Registering " + newMember.getName());
+      logger.info("Registering " + newMember.getName());
       em.persist(newMember);
       facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful"));
       memberEventSrc.fire(newMember);
