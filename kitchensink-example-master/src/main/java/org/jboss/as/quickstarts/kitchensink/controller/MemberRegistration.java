@@ -25,7 +25,7 @@ import org.jboss.as.quickstarts.kitchensink.model.Member;
 @Model
 public class MemberRegistration {
 	private static final Logger logger = Logger.getLogger(MemberRegistration.class);
-	private static final SEPARATOR = "===========================================================================================";
+	private static final String SEPARATOR = "===========================================================================================";
 
    @Inject
    private Logger log;
