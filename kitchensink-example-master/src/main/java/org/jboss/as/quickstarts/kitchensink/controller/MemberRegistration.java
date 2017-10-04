@@ -12,6 +12,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
+import org.apache.log4j.Logger;
 
 import org.jboss.as.quickstarts.kitchensink.model.Member;
 
@@ -23,6 +24,8 @@ import org.jboss.as.quickstarts.kitchensink.model.Member;
 // http://sfwk.org/Documentation/WhatIsThePurposeOfTheModelAnnotation
 @Model
 public class MemberRegistration {
+	private static final Logger logger = Logger.getLogger(MemberRegistration.class);
+	private statid final SEPARATOR = "===========================================================================================";
 
    @Inject
    private Logger log;
@@ -54,6 +57,9 @@ public class MemberRegistration {
 
    @PostConstruct
    public void initNewMember() {
+		logger.info(SEPARATOR);
+		logger.info("INIT_MEMBER");
       newMember = new Member();
+		logger.info(SEPARATOR);
    }
 }
