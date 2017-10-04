@@ -84,7 +84,7 @@
                 <datasources>
     <!-- ##DATASOURCES## -->
 				<datasource jndi-name="java:jboss/datasources/ProductDS" enabled="true" use-java-context="true" pool-name="ProductDS">
-					<connection-url>jdbc:mysql://${env.DATABASE_SERVICE_HOST}:${env.DATABASE_SERVICE_PORT}/${env.MYSQL_DATABASE}</connection-url>
+					<connection-url>jdbc:mysql://${env.MYSQL_SERVICE_HOST}:${env.MYSQL_SERVICE_PORT}/${env.MYSQL_DATABASE}</connection-url>
 					<driver>mysql</driver>
 					<security>
 					  <user-name>${env.MYSQL_USER}</user-name>
