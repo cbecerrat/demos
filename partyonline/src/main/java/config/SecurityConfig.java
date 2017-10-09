@@ -25,8 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.requiresChannel().anyRequest().requiresSecure();
+	protected void configure(HttpSecurity http) throws Exception {		
 		http.authorizeRequests().antMatchers("/servicing/**").access("hasRole('ROLE_ADMIN')")
 			.and()
 				.formLogin().loginPage("/login").failureUrl("/login?error").usernameParameter("username").passwordParameter("password")
@@ -39,7 +38,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 				.csrf()
 			.and()
-				.exceptionHandling().accessDeniedHandler(accessDeniedHandler());
+				.exceptionHandling().accessDeniedHandler(accessDeniedHandler())
+			.and()
+				.requiresChannel().anyRequest().requiresSecure();
+		
+		http.portMapper().http(8080).mapsTo(8443);
 	}
 
 	@Bean
