@@ -38,11 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 				.csrf()
 			.and()
-				.exceptionHandling().accessDeniedHandler(accessDeniedHandler())
-			.and()
-				.requiresChannel().anyRequest().requiresSecure();
-		
-		http.portMapper().http(8080).mapsTo(443);
+				.exceptionHandling().accessDeniedHandler(accessDeniedHandler());							
 	}
 
 	@Bean
