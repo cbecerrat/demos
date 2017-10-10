@@ -1,4 +1,7 @@
-$(document).ready(function() {				
+$(document).ready(function() {	
+	$('#loading').css('display', 'none');
+	$('#mainDIV').css('display', 'block');	
+	
 	$('#registrarme').click(function(e){
 		e.preventDefault();
 		$('#mainDIV').css('display', 'none');
@@ -49,7 +52,7 @@ $(document).ready(function() {
 		$('#mainDIV').css('display', 'block');
 	});
 	
-	//Iniciar sesión
+	//Iniciar sesiï¿½n
 	$('#entrar').click(function(e){
 		e.preventDefault();
 		$('#mainDIV').css('display', 'none');

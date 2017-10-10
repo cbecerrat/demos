@@ -36,8 +36,11 @@
 			}
 		</style>
 	</head>
-	<body>
-		<div id="mainDIV" class="container" style="display:block;">
+	<body>	
+		<div id="loading" class="text-center container">
+			<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>			
+		</div>
+		<div id="mainDIV" class="container" style="display:none;">
 			<div class="text-center">
 				<img src="resources/images/party.jpg" style="width: 100%"/>
 			</div>
