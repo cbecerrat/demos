@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import repositories.ProductRepository;
+import repositories.UserRepository;
 
 @Controller
 public class Index {
 	@Autowired
-	ProductRepository pr;	
+	UserRepository pr;	
 
 	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
 	public ModelAndView index() {

@@ -45,14 +45,14 @@
 				<img src="resources/images/party.jpg" style="width: 100%"/>
 			</div>
 			</br>
-			<form>
+			<form id="loginForm">
 				<div class="form-group">
-					<label for="usuario">Usuario:</label>
-					<input class="form-control" id="usuario"placeholder="Tu nombre de usuario">			
+					<label for="username">Usuario:</label>
+					<input class="form-control" name="username"placeholder="Tu nombre de usuario">			
 				</div>
 				<div class="form-group">
-					<label for="contrasenia">Contrase&ntilde;a:</label>
-					<input type="password" class="form-control" id="contrasenia" placeholder="Contrase&ntilde;a">
+					<label for="password">Contrase&ntilde;a:</label>
+					<input type="password" class="form-control" name="password" placeholder="Contrase&ntilde;a">
 				</div>
 				<div class="text-center">
 					<button id="entrar" type="submit" class="btn btn-primary">Entrar</button>
