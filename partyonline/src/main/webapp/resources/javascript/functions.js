@@ -64,5 +64,19 @@ $(document).ready(function() {
 		e.preventDefault();
 		$('#sesionDIV').css('display', 'none');
 		$('#mainDIV').css('display', 'block');
-	});				
+	});
+	
+
+	var postData = JSON.stringify({'user': 'myUser'});
+	$.ajax({
+		  type: 'POST',
+		  contentType: 'application/json; charset=utf-8',
+		  dataType: 'json',
+		  url: 'login',
+		  data: postData		  
+	}).done(function(data) {
+		console.log('AJAX_RESPONSE: ' + JSON.stringify(data));
+	}).fail(function(data) {
+		console.log('ERROR ON AJAX CALL...\n' + JSON.stringify(data));
+	});
 });
