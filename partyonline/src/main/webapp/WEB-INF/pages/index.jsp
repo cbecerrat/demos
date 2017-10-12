@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">						
+		<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css"/>">
 		<link rel="stylesheet" href="<c:url value="/resources/fontAwesome/css/font-awesome.css"/>">
 		<style>
 			.badge{
@@ -34,6 +34,15 @@
 			.radio-inline{
 				padding: 15px;
 			}
+			
+			.table tr td {
+				font-family: Lucida Sans Typewriter;
+				font-size: 12px;				
+			}
+			
+			.table th, .table td {
+				max-width: 15px;			
+			}
 		</style>
 	</head>
 	<body>	
@@ -52,7 +61,7 @@
 				</div>
 				<div class="form-group">
 					<label for="password">Contrase&ntilde;a:</label>
-					<input type="password" class="form-control" name="password" placeholder="Contrase&ntilde;a">
+					<input type="password" class="form-control" name="password" id="password" placeholder="Contrase&ntilde;a">
 				</div>
 				<div class="text-center">
 					<button id="entrar" type="submit" class="btn btn-primary">Entrar</button>
@@ -61,12 +70,12 @@
 					</br></br>
 					<a href="javascript:;" id="registrarme">Registrarme.</a>
 					</br></br>
-					<a href="javascript:;">&iquest;Olvidaste tu contrase&ntilde;a?</a>
+					<a href="javascript:;" id="olvideContrasenia">&iquest;Olvidaste tu contrase&ntilde;a?</a>
 				</div>
 			</form>
 		</div>
 		
-		<div id="registroDIV" class="container" style="display:none;">
+		<div id="registroDIV" class="container" style="display:none; margin-bottom: 50px;">
 			<div class="text-center">
 				<h3>PartyOnline registro:</h3>
 			</div>
@@ -111,7 +120,7 @@
 			</form>
 		</div>
 		
-		<div id="continuarRegistroDIV" class="container" style="display:none;">
+		<div id="continuarRegistroDIV" class="container" style="display:none; margin-bottom: 50px;">
 			<form id="continuarRegistroForm">
 				<div class="form-group">
 					<label for="formaPago">Forma de pago:</label>
@@ -153,7 +162,7 @@
 			</form>
 		</div>
 		
-		<div id="concluirDIV" class="container" style="display:none;">
+		<div id="concluirDIV" class="container" style="display:none; margin-bottom: 50px;">
 			<div class="text-center">
 				<h3>Agregar domicilio:</h3>
 			</div>
@@ -185,16 +194,16 @@
 				
 				<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
 					<div class="btn-group mr-2" role="group" aria-label="First group">
-						<button id="cancelarConcluir" type="submit" formaction="index.html"  class="btn btn-primary">Cancelar</button>
+						<button id="cancelarConcluir" type="submit" class="btn btn-primary">Cancelar</button>
 					</div>
 					<div class="btn-group mr-2" role="group" aria-label="Second group">	
-						<button id="concluir" type="submit" formaction="index.html" class="btn btn-primary">Terminar</button>
+						<button id="concluir" type="submit" class="btn btn-primary">Terminar</button>
 					</div>
 				</div>
 			</form>
 		</div>
 		
-		<div id="sesionDIV" class="container" style="display:none;">
+		<div id="sesionDIV" class="container" style="display:none; margin-bottom: 50px;">
 			<div class="text-center">
 				<img src="resources/images/party.jpg" style="width: 100%"/>
 			</div>
@@ -205,11 +214,11 @@
 				</div>				
 				</br></br></br>
 				<div class="text-center">					
-					<i class="fa fa-stack fa-shopping-cart fa-2x" aria-hidden="true" data-count="10"></i>
+					<i id="miCarrito" class="fa fa-stack fa-shopping-cart fa-2x" aria-hidden="true" data-count="3"></i>
 					&nbsp;
 					<i class="fa fa-stack fa-search fa-2x" aria-hidden="true"></i>					
 					<i class="fa fa-stack fa-bars fa-2x" aria-hidden="true"></i>
-				<div>
+				</div>
 				</br></br></br>
 
 				<div class="text-center">
@@ -218,11 +227,102 @@
 			</form>
 		</div>
 		
+		<div id="recuperarContraseniaDIV" class="container" style="display:none; margin-bottom: 50px;">
+			<form id="recuperarContraseniaForm">
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="email" class="form-control" id="email" name="email" placeholder="ejemplo@mail.com">
+				</div>
+				<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+					<div class="btn-group mr-2" role="group" aria-label="First group">
+						<button id="cancelarRecuperarContrasenia" type="submit" class="btn btn-primary">Cancelar</button>
+					</div>
+					<div class="btn-group mr-2" role="group" aria-label="Second group">	
+						<button id="confirmarRecuperarContrasenia" type="submit" class="btn btn-primary">Enviar</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		
+		<div id="miCarritoDIV" class="container" style="display:none; margin-bottom: 50px;">
+			<div class="row">
+				<div class="text-center">
+					<h4>Mi carrito:</h4>
+				</div>				
+				<table id="compras" class="table table-hover">
+					<thead>
+						<tr>
+							<th>Producto</th>
+							<th class="text-center">#</th>
+							<th class="text-center">Precio</th>
+							<th class="text-center">Total</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Six Tecate Titanium 610ml</td>
+							<td style="text-align: center"> 2 </td>
+							<td class="text-center">$60</td>
+							<td class="text-center">$120</td>
+						</tr>
+						<tr>
+							<td>Six Heineken 610ml</td>
+							<td style="text-align: center"> 1 </td>
+							<td class="text-center">$120</td>
+							<td class="text-center">$120</td>
+						</tr>
+						<tr>
+							<td>Six Tecate Light 350ml</td>
+							<td style="text-align: center"> 3 </td>
+							<td class="text-center">$54</td>
+							<td class="text-center">$162</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td class="text-right">
+								<p>
+									<strong>Subtotal:  </strong>
+								</p>
+								<p>
+									<strong>IVA:  </strong>
+								</p>
+							</td>
+							<td class="text-center">
+								<p>
+									<strong>$337.68</strong>
+								</p>
+								<p>
+									<strong>$64.32</strong>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td class="text-right"><strong>Total:</strong></td>
+							<td class="text-center text-danger"><strong>$402.00</strong></td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<button type="button" class="btn btn-success btn-lg btn-block">
+					Pagar ahora      <span class="fa fa-dollar"></span>
+				</button>
+				
+				
+				<button id="continuarComprando" type="button" class="btn btn-primary btn-lg btn-block">
+					Continuar comprando      <span class="fa fa-backward"></span>
+				</button>
+			</div>
+		</div>
+		
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		<script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+		<script src="<c:url value="/resources/javascript/jquery.js"/>"></script>
+		<script src="<c:url value="/resources/javascript/popper.js"/>"></script>
+		<script src="<c:url value="/resources/javascript/bootstrap.js"/>"></script>
 		<script src="<c:url value="/resources/javascript/functions.js"/>"></script>	
+		<script src="<c:url value="/resources/javascript/function.js"/>"></script>
 	</body>
 </html>
