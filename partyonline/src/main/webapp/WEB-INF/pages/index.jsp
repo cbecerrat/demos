@@ -57,7 +57,7 @@
 			<form id="loginForm">
 				<div class="form-group">
 					<label for="username">Usuario:</label>
-					<input class="form-control" name="username"placeholder="Tu nombre de usuario">			
+					<input class="form-control" name="username" placeholder="Tu nombre de usuario">			
 				</div>
 				<div class="form-group">
 					<label for="password">Contrase&ntilde;a:</label>
@@ -230,8 +230,8 @@
 		<div id="recuperarContraseniaDIV" class="container" style="display:none; margin-bottom: 50px;">
 			<form id="recuperarContraseniaForm">
 				<div class="form-group">
-					<label for="email">Email</label>
-					<input type="email" class="form-control" id="email" name="email" placeholder="ejemplo@mail.com">
+					<label for="email">Email:</label>
+					<input class="form-control" name="email" placeholder="ejemplo@mail.com">			
 				</div>
 				<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
 					<div class="btn-group mr-2" role="group" aria-label="First group">

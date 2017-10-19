@@ -66,6 +66,8 @@ $(document).ready(function() {
 	
 	$('#confirmarRecuperarContrasenia').click(function(e){				
 		e.preventDefault();
+		passwordRecover();
+		
 		$('#recuperarContraseniaForm').trigger("reset");		
 		$('#recuperarContraseniaDIV').css('display', 'none');
 		$('#mainDIV').css('display', 'block');
@@ -114,6 +116,23 @@ $(document).ready(function() {
 			  contentType: 'application/json; charset=utf-8',
 			  dataType: 'json',
 			  url: 'login',
+			  data: formAsJSON		  
+		}).done(function(data) {
+			console.log('AJAX_RESPONSE: ' + JSON.stringify(data));
+		}).fail(function(data) {
+			console.log('ERROR ON AJAX CALL...\n' + JSON.stringify(data));
+		});
+	}
+	
+	function passwordRecover(){
+		var form = convertFormToJSON($('#recuperarContraseniaForm'));
+		formAsJSON = JSON.stringify(form);
+		
+		$.ajax({
+			  type: 'POST',
+			  contentType: 'application/json; charset=utf-8',
+			  dataType: 'json',
+			  url: 'passwordRecover',
 			  data: formAsJSON		  
 		}).done(function(data) {
 			console.log('AJAX_RESPONSE: ' + JSON.stringify(data));

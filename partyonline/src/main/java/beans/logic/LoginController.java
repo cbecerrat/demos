@@ -1,5 +1,6 @@
 package beans.logic;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,18 +12,20 @@ import repositories.UserRepository;
 
 @RestController
 public class LoginController {
+	private static final Logger LOGGER = Logger.getLogger(LoginController.class);
+	
 	@Autowired
 	UserRepository ur;
 	
 	@PostMapping(value = "/login")	
 	public LoginResult login(@RequestBody User _user){		
-		System.out.println("PERFORM LOGIN... [" +  _user + "]");
+		LOGGER.info("PERFORM LOGIN... [" +  _user + "]");
 		
 		try {
 			User user = ur.findUser(_user.getUsername());
-			System.out.println(user);
+			LOGGER.info(user);
 		}catch(Exception e) {
-			e.printStackTrace();
+			LOGGER.error("ERROR", e);
 		}
 		
 		LoginResult result = new LoginResult();
