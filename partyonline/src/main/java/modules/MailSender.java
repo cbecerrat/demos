@@ -19,8 +19,8 @@ public class MailSender {
 	private final Logger LOGGER = Logger.getLogger(MailSender.class);
 	private final Properties MAIL_PROPERTIES = new Properties();
 	private final String MAIL_CONTENT_TYPE = "text/html; charset=utf-8";
-	private final String MAIL = System.getProperty("MAIL_ACCOUNT");
-	private final String PASSWORD = System.getProperty("MAIL_PASSWORD");
+	private final String MAIL = System.getenv("MAIL_ACCOUNT");
+	private final String PASSWORD = System.getenv("MAIL_PASSWORD");
 	
 	private final String MAIL_SENT = "{%1$s} mail sent to {%2$s}";
 	private final String ERROR_SENDING_MAIL = "Error while sending {%1$s} mail to {%2$s}";
