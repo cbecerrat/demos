@@ -1,0 +1,46 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>LC System</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<script>
+			var fileName = '';
+		
+			function obtenerNombreArchivo(){
+				fileName = document.getElementById("file").files[0].name;				
+				document.getElementById('fileName').innerHTML = fileName;
+			}
+			
+			function cargar(){
+				if(fileName != ""){
+					document.getElementById('fileNameContainer').style.display = "none";
+					document.getElementById("cargando").style.display = "initial";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div style="text-align: center; margin-top: 75px">
+			<h1>Sistema de ordenamiento LC</h1>
+			
+			<div style="width: 25%; margin: auto">
+				<form method="POST" action="/upload" enctype="multipart/form-data">
+					<div id="fileNameContainer">
+						<input type="button" id="loadFile" value="Seleccionar archivo" onclick="document.getElementById('file').click();" />
+						<input type="file" style="display:none;" id="file" name="file" onchange="obtenerNombreArchivo()"/>
+						<br/><br/>
+										
+						<label id="fileName">Ning&uacute;n archivo seleccionado...</label>
+						<br/><br/>
+						
+						<input type="submit" value="Cargar" onclick="cargar()" />
+					</div>
+					
+					<div id="cargando" style="display:none">
+						<img src="gifs/progress.gif" height="120" width="120"/>						
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
