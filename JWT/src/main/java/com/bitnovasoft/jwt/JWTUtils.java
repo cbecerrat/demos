@@ -2,6 +2,13 @@ package com.bitnovasoft.jwt;
 
 import static com.bitnovasoft.utilities.ProjectConstants.*;
 
+import java.security.KeyFactory;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.interfaces.RSAPrivateKey;
+import java.security.interfaces.RSAPublicKey;
+import java.security.spec.RSAPrivateKeySpec;
+import java.security.spec.RSAPublicKeySpec;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
@@ -22,11 +29,45 @@ public class JWTUtils {
 	private JWTVerifier verifier = null;
 	
 	public JWTUtils() {
+		KeyPairGenerator keyPairGenerator;
+		KeyPair keyPair;
+		KeyFactory keyFactory;
+		
+		RSAPublicKeySpec publicKeySpec;
+		RSAPrivateKeySpec privateKeySpec;
+		
+		RSAPublicKey publicRsaKey;
+		RSAPrivateKey privateRsaKey;
 		try {
-			algorithm = Algorithm.HMAC256(JWT_UTILS_ALGORITHM_SECRET);
+			keyPairGenerator = KeyPairGenerator.getInstance(RSA);
+			keyPairGenerator.initialize(2048);
+			
+			// generate the key pair
+			keyPair = keyPairGenerator.genKeyPair();
+
+            // create KeyFactory and RSA Keys Specs
+            keyFactory = KeyFactory.getInstance(RSA);
+            publicKeySpec = keyFactory.getKeySpec(keyPair.getPublic(), RSAPublicKeySpec.class);
+            privateKeySpec = keyFactory.getKeySpec(keyPair.getPrivate(), RSAPrivateKeySpec.class);
+
+            // generate (and retrieve) RSA Keys from the KeyFactory using Keys Specs
+            publicRsaKey = (RSAPublicKey) keyFactory.generatePublic(publicKeySpec);
+            privateRsaKey  = (RSAPrivateKey) keyFactory.generatePrivate(privateKeySpec);
+			
+			algorithm = Algorithm.RSA512(publicRsaKey, privateRsaKey);
 			verifier = JWT.require(algorithm).withIssuer(JWT_UTILS_CREATE_WITH_ISSUER).build();
 		} catch (Exception e) {
 			log.error(ERROR_WHILE_GETTING_ALGORITHM);
+		} finally {
+			keyPairGenerator = null;
+			keyPair = null;
+			keyFactory = null;
+			
+			publicKeySpec = null;
+			privateKeySpec = null;
+			
+			publicRsaKey = null;
+			privateRsaKey = null;
 		}
 	}
 	

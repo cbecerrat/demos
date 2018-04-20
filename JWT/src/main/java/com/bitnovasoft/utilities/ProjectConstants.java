@@ -9,6 +9,8 @@ public class ProjectConstants {
 	public static final String SCAN_API_PACKAGE = "com.bitnovasoft.api";
 	public static final String SCAN_JWT_PACKAGE = "com.bitnovasoft.jwt";
 	
+	public static final String RSA = "RSA";
+	
 	public static final String EMPTY_STRING = "";
 	public static final String HOUR_FORMAT = "HH:mm:ss";
 	public static final String DATE_FORMAT = "yyyy-MM-dd";
