@@ -3,14 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.codenotfound</groupId>
-	<artifactId>jsf-primefaces-spring-boot</artifactId>
+	<groupId>com.enterprise</groupId>
+	<artifactId>gestion-clientes</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>jsf-primefaces-spring-boot</name>
-	<description>JSF - PrimeFaces Example using Spring Boot and Maven</description>
-	<url>https://www.codenotfound.com/jsf-primefaces-example-spring-boot-maven.html</url>
+	<name>gestion-clientes</name>
+	<description>Client administration system</description>	
 
 	<parent>
 		<groupId>org.joinfaces</groupId>
@@ -30,6 +29,12 @@
 		<dependency>
 			<groupId>org.joinfaces</groupId>
 			<artifactId>primefaces-spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>			
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
