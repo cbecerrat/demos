@@ -1,7 +1,9 @@
 package com.enterprise.clientsystem.model;
 
-import javax.annotation.ManagedBean;
+import java.io.Serializable;
+
 import javax.faces.bean.ViewScoped;
+import javax.inject.Named;
 
 import lombok.Data;
 
@@ -9,19 +11,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.enterprise.clientsystem.business.HelloService;
 
-@ManagedBean
-@ViewScoped
 @Data
-public class HelloWorldController {
+@Named
+@ViewScoped
+public class HelloWorldController implements Serializable{	
+	private static final long serialVersionUID = 1L;
 	private String firstName = "";
 	private String lastName = "";
-	
+
 	@Autowired
-	HelloService helloService;
-	
-	public HelloWorldController(){
-		
-	}
+	private HelloService helloService;
 
 	public String showGreeting() {
 		return helloService.sayHello(firstName, lastName);

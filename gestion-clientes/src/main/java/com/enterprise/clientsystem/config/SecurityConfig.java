@@ -14,7 +14,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		// require all requests to be authenticated except for the resources
 		http.authorizeRequests()
 			.antMatchers("/javax.faces.resource/**").permitAll()
-			.antMatchers("/user/**").hasAnyRole("USER or ADMIN")
+			.antMatchers("/user/**").hasAnyRole("USER", "ADMIN")
 			.antMatchers("/admin/**").hasAnyRole("ADMIN").anyRequest().authenticated();
 		// login
 		http.formLogin().loginPage("/login.xhtml").permitAll().failureUrl("/login.xhtml?error=true");

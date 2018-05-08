@@ -27,17 +27,16 @@
 			<h:panelGrid columns="2" cellpadding="4">
 
 				<h:outputText value="First Name: " />
-				<p:inputText value="#{helloWorldController.firstName}" />
+				<p:inputText id="firstName" value="#{helloWorldController.firstName}" />
 
 				<h:outputText value="Last Name: " />
-				<p:inputText value="#{helloWorldController.lastName}" />
-
+				<p:inputText id="lastName" value="#{helloWorldController.lastName}" />
+				
 				<p:commandButton value="Submit" update="greeting" oncomplete="PF('greetingDialog').show()" />
 			</h:panelGrid>
 		</p:panel>
 
-		<p:dialog header="Greeting" widgetVar="greetingDialog" modal="true"
-			resizable="false">
+		<p:dialog header="Greeting" widgetVar="greetingDialog" modal="true" resizable="false" draggable="false">
 			<h:panelGrid id="greeting" columns="1" cellpadding="4">
 				<h:outputText value="#{helloWorldController.showGreeting()}" />
 			</h:panelGrid>
@@ -47,6 +46,5 @@
 	<h:form onsubmit="this.action='#{request.contextPath}/logout';" class="logout-form">
 		<p:commandButton value="Logout" ajax="false" />
 	</h:form>
-
 </h:body>
 </html>
