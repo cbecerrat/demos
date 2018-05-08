@@ -12,40 +12,39 @@
 
 <h:body>
 
-	<div class="authorization-div">
+	<div class="authorization-div">		    
 		<sec:authorize access="hasRole('ROLE_USER')">
 			<p:outputLabel value="You have the USER role" />
 		</sec:authorize>
 		<sec:authorize access="hasRole('ROLE_ADMIN')">
-			<p:outputLabel value="You have the ADMIN role" />
+			<p:outputLabel value="You have the ADMIN role"/>	
+			<p:button href="/admin/User.jsf" value="New User"/>
 		</sec:authorize>
 	</div>
 
 	<h:form>
-		<p:panel header="PrimeFaces Hello World Example">
+		<p:panel header="Hello">
 			<h:panelGrid columns="2" cellpadding="4">
 
 				<h:outputText value="First Name: " />
-				<p:inputText value="#{helloWorld.firstName}" />
+				<p:inputText value="#{helloWorldController.firstName}" />
 
 				<h:outputText value="Last Name: " />
-				<p:inputText value="#{helloWorld.lastName}" />
+				<p:inputText value="#{helloWorldController.lastName}" />
 
-				<p:commandButton value="Submit" update="greeting"
-					oncomplete="PF('greetingDialog').show()" />
+				<p:commandButton value="Submit" update="greeting" oncomplete="PF('greetingDialog').show()" />
 			</h:panelGrid>
 		</p:panel>
 
 		<p:dialog header="Greeting" widgetVar="greetingDialog" modal="true"
 			resizable="false">
 			<h:panelGrid id="greeting" columns="1" cellpadding="4">
-				<h:outputText value="#{helloWorld.showGreeting()}" />
+				<h:outputText value="#{helloWorldController.showGreeting()}" />
 			</h:panelGrid>
 		</p:dialog>
 	</h:form>
 
-	<h:form onsubmit="this.action='#{request.contextPath}/logout';"
-		class="logout-form">
+	<h:form onsubmit="this.action='#{request.contextPath}/logout';" class="logout-form">
 		<p:commandButton value="Logout" ajax="false" />
 	</h:form>
 
