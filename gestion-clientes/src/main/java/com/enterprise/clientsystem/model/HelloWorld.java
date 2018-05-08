@@ -4,13 +4,18 @@ import javax.inject.Named;
 
 import lombok.Data;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+
 @Named
 @Data
 public class HelloWorld {
-	private String firstName = "Some";
-	private String lastName = "User";
+	private String firstName = "";
+	private String lastName = "";
 
 	public String showGreeting() {
-		return "Hello " + firstName + " " + lastName + "!";
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+		return "Hello " + authentication.getName() + "!";
 	}
 }

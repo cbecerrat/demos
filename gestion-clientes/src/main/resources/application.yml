@@ -1,0 +1,3 @@
+server:
+  context-path: /gestion-clientes
+  port: 8080
