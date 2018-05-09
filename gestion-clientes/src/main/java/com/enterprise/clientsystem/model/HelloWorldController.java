@@ -31,8 +31,6 @@ public class HelloWorldController{
 	}
 	
 	public void addOne(){
-		carList.add(new Car(id, anio, "Vento", "Black"));
-		id++;
-		anio++;
+		carList.add(new Car(id++, anio++, "Vento", "Black"));
 	}
 }
