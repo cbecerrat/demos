@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.bitnovasoft.entities.ResultadoOperacion;
+import com.bitnovasoft.entities.OperationResult;
 import com.bitnovasoft.jwt.JWTUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -54,7 +54,7 @@ public class InterceptorPrincipal implements HandlerInterceptor{
     }
     
     private void getError(HttpServletResponse response, Integer codigo, String descripcion){
-    	ResultadoOperacion resultado = new ResultadoOperacion(codigo, descripcion);
+    	OperationResult resultado = new OperationResult(codigo, descripcion);
     	String respuesta = EMPTY_STRING;
     	try {
 			respuesta =  mapper.writeValueAsString(resultado);

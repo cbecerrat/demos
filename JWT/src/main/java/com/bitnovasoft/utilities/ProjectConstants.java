@@ -4,7 +4,7 @@ import org.springframework.http.MediaType;
 
 public class ProjectConstants {
 	public static final String SEPARATOR = "============================================================================";
-	public static final String SYSTEM_STARTED = "Sistema iniciado...";
+	public static final String SYSTEM_STARTED = "Systema started...";
 	
 	public static final String SCAN_API_PACKAGE = "com.bitnovasoft.api";
 	public static final String SCAN_JWT_PACKAGE = "com.bitnovasoft.jwt";
@@ -33,7 +33,7 @@ public class ProjectConstants {
 	public static final String WADL_CONTROLLER_MAPPING_ROOT = "/";
 	
 	//MainController.java
-	public static final String MAIN_CONTROLLER_MAPPING_ROOT = "/api/medico";
+	public static final String MAIN_CONTROLLER_MAPPING_ROOT = "/api/medic";
 	
 	public static final String MAIN_CONTROLLER_PARAM_ID = "id";	
 	
@@ -42,12 +42,14 @@ public class ProjectConstants {
 	public static final String DEFAULT_USER = "user";
 	public static final String DEFAULT_PASSWORD = "password";
 	
-	public static final String LOGIN_CONTROLLER_PARAM_USER = "usuario";
+	public static final String LOGIN_CONTROLLER_PARAM_USER = "user";
 	public static final String LOGIN_CONTROLLER_PARAM_PASSWORD = "password";
 	
 	public static final String LOGIN_CONTROLLER_HEADER_TOKEN = "token";
-	public static final String LOGIN_CONTROLLER_INVALID_CREDENTIALS = "Usuario o Password invalido";
-	public static final String LOGIN_CONTROLLER_SUCCESS = "Success";
+	public static final String LOGIN_INVALID_CREDENTIALS = "User or Password invalid";
+	public static final String LOGIN_SUCCESS = "Success";
+	public static final String LOGIN_USER_LOCKED = "User account has been locked due to several login failures";
+	public static final Integer LOGIN_MAX_RETRIES = 5;
 	
 	//JWTUtils.java
 	public static final String ERROR_WHILE_GETTING_ALGORITHM = "Eror while getting algorithm...";
@@ -57,7 +59,13 @@ public class ProjectConstants {
 	public static final String JWT_UTILS_CREATE_WITH_SUBJECT = "authentication";
 	public static final String JWT_UTILS_CREATE_WITH_ID = "id";
 	
-	public static final String MISSING_TOKEN = "No hay token en la solicitud";
-	public static final String INVALID_TOKEN = "Token invalido";
+	public static final String MISSING_TOKEN = "There is no token on request";
+	public static final String INVALID_TOKEN = "Invalid token";
 	public static final String ERROR_WHILE_DECODING_TOKEN = "Eror while decoding token...";
+	
+	public static final String DB_URL = "${db.url}";
+	
+	public static final String DB_QUERY_LOGIN = "${db.query.login}";
+	public static final String DB_QUERY_LOGIN_UPDATE_RETRIES = "${db.query.login.update.retries}";
+	
 }

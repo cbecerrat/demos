@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bitnovasoft.api.repositorios.MedicoDAO;
-import com.bitnovasoft.entities.Medico;
-import com.bitnovasoft.entities.ResultadoOperacion;
+import com.bitnovasoft.entities.Medic;
+import com.bitnovasoft.entities.OperationResult;
 
 @RestController
 @RequestMapping(MAIN_CONTROLLER_MAPPING_ROOT)
@@ -25,13 +25,13 @@ public class MainController {
 	private MedicoDAO medicoDAO;		
 
 	@GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
-	public Medico getMedico(@RequestParam(value = MAIN_CONTROLLER_PARAM_ID, required=true) Long id) {
-		return medicoDAO.getMedito(id);
+	public Medic getMedico(@RequestParam(value = MAIN_CONTROLLER_PARAM_ID, required=true) Long id) {
+		return medicoDAO.getMedico(id);
 	}
 
 	@PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-	public ResultadoOperacion createMedico(@RequestBody Medico medico) {
-		ResultadoOperacion resultadoOperacion = new ResultadoOperacion(HttpStatus.OK.value(), OK);
+	public OperationResult createMedico(@RequestBody Medic medico) {
+		OperationResult resultadoOperacion = new OperationResult(HttpStatus.OK.value(), OK);
 		return resultadoOperacion;
 	}
 }

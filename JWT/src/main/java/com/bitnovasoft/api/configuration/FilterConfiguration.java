@@ -29,11 +29,11 @@ import com.bitnovasoft.api.configuration.interceptores.InterceptorPrincipal;
 @Configuration
 public class FilterConfiguration implements WebMvcConfigurer{
 	@Autowired
-	InterceptorPrincipal interceptorPrincipal;
+	InterceptorPrincipal mainInterceptor;
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(interceptorPrincipal).addPathPatterns(FILTER_CONFIGURATION_MAPPING);
+		registry.addInterceptor(mainInterceptor).addPathPatterns(FILTER_CONFIGURATION_MAPPING);
 	}
 
 	@Override

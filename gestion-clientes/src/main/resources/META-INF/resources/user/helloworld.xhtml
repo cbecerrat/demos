@@ -11,6 +11,7 @@
 </h:head>
 
 <h:body>
+	<div class="content">
 	<div class="authorization-div">		    
 		<sec:authorize access="hasRole('ROLE_USER')">
 			<p:outputLabel value="You have the USER role" />
@@ -52,7 +53,7 @@
 			<p:commandButton action="#{helloWorldController.addOne}" value="Obtener datos" update="dataTable, id, anio"/>
 		</h:form>
 	</sec:authorize>
-	
+		
 	<p:dataTable id="dataTable" var="car" value="#{helloWorldController.carList}" paginator="true" rows="10" selectionmode="single">
 	    <p:column headerText="Id">
             ${car.id}
@@ -71,5 +72,6 @@
 	<h:form onsubmit="this.action='#{request.contextPath}/logout';" class="logout-form">
 		<p:commandButton value="Logout" ajax="false" />
 	</h:form>
+	</div>
 </h:body>
 </html>

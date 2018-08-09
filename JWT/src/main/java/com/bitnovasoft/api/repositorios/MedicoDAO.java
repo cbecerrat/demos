@@ -8,24 +8,24 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.bitnovasoft.entities.Medico;
+import com.bitnovasoft.entities.Medic;
 
 @Component
 public class MedicoDAO {
 	@Autowired
 	CitaDAO citaDAO;
 	
-	public Medico getMedito(Long id){
-		Medico medico = new Medico();
+	public Medic getMedico(Long id){
+		Medic medico = new Medic();
 		
 		medico.setId(id);
-		medico.setEspecialidad(generateString());
-		medico.setNombre(generateString());	
+		medico.setSpeciality(generateString());
+		medico.setName(generateString());	
 		List<Long> idCitas = new ArrayList<>();
 		idCitas.add(1L);
 		idCitas.add(2L);
 		idCitas.add(3L);
-		medico.setCitas(citaDAO.getCitas(idCitas));
+		medico.setAppointments(citaDAO.getCitas(idCitas));
 		return medico;
 	}
 }

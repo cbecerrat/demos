@@ -9,26 +9,26 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.bitnovasoft.entities.Cita;
+import com.bitnovasoft.entities.Appointment;
 
 @Component
 public class CitaDAO {
 	SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
 	SimpleDateFormat shf = new SimpleDateFormat(HOUR_FORMAT);
 	
-	public List<Cita> getCitas(List<Long> ids){
-		List<Cita> citas = new ArrayList<>();
+	public List<Appointment> getCitas(List<Long> ids){
+		List<Appointment> citas = new ArrayList<>();
 		
 		for(Long id : ids){
-			Cita cita = new Cita();
+			Appointment cita = new Appointment();
 			citas.add(cita);
 			
 			Date date = new Date();
 			
 			cita.setId(id);
-			cita.setFecha(sdf.format(date));
-			cita.setHora(shf.format(date));
-			cita.setAtendida(false);
+			cita.setDate(sdf.format(date));
+			cita.setHour(shf.format(date));
+			cita.setAttended(false);
 		}
 		
 		return citas;
