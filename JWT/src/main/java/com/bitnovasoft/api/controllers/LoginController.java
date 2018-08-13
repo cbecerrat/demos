@@ -5,6 +5,7 @@ import static com.bitnovasoft.utilities.ProjectConstants.*;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,8 +31,14 @@ public class LoginController {
 	public OperationResult login(@RequestBody(required = false) Login login, HttpServletResponse response){
 		OperationResult result = dao.login(new User(login.getUser(), login.getPassword()));
 		
-		if(result.getCode() == 200){
-			response.setHeader(LOGIN_CONTROLLER_HEADER_TOKEN, jwtUtils.getToken());
+		if(result == null){
+			result = new OperationResult();
+			result.setCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+			result.setDescription(SERVICE_NOT_AVAILABLE);
+		}else{
+			if(result.getCode() == 200){
+				response.setHeader(LOGIN_CONTROLLER_HEADER_TOKEN, jwtUtils.getToken());
+			}
 		}
 		
 		return result;

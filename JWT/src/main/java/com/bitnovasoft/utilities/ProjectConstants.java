@@ -6,6 +6,7 @@ public class ProjectConstants {
 	public static final String SEPARATOR = "============================================================================";
 	public static final String SYSTEM_STARTED = "Systema started...";
 	
+	public static final String PROPERTIES = "/WEB-INF/application.properties";
 	public static final String SCAN_API_PACKAGE = "com.bitnovasoft.api";
 	public static final String SCAN_JWT_PACKAGE = "com.bitnovasoft.jwt";
 	
@@ -61,7 +62,8 @@ public class ProjectConstants {
 	
 	public static final String MISSING_TOKEN = "There is no token on request";
 	public static final String INVALID_TOKEN = "Invalid token";
-	public static final String ERROR_WHILE_DECODING_TOKEN = "Eror while decoding token...";
+	public static final String ERROR_WHILE_DECODING_TOKEN = "Error while decoding token...";
+	public static final String SERVICE_NOT_AVAILABLE = "Service currently not available...";
 	
 	public static final String DB_URL = "${db.url}";
 	

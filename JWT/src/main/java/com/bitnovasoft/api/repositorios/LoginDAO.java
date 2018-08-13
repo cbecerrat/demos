@@ -1,7 +1,7 @@
 package com.bitnovasoft.api.repositorios;
 
 import static com.bitnovasoft.utilities.ProjectConstants.*;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,7 +16,7 @@ import com.bitnovasoft.entities.OperationResult;
 import com.bitnovasoft.entities.User;
 
 @Repository
-@Slf4j
+@Log4j
 public class LoginDAO {
 	@Autowired
 	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;

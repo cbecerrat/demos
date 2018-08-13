@@ -13,7 +13,7 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 
 import org.springframework.stereotype.Component;
 
@@ -23,7 +23,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 
 @Component
-@Slf4j
+@Log4j
 public class JWTUtils {
 	private Algorithm algorithm = null;
 	private JWTVerifier verifier = null;
