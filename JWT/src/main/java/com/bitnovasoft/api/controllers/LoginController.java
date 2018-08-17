@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ import com.bitnovasoft.entities.OperationResult;
 import com.bitnovasoft.entities.User;
 import com.bitnovasoft.jwt.JWTUtils;
 
+@CrossOrigin
 @RestController
 @RequestMapping(LOGIN_CONTROLLER_MAPPING_ROOT)
 public class LoginController {
@@ -26,10 +28,14 @@ public class LoginController {
 	
 	@Autowired
 	private LoginDAO dao;
-	
+		
 	@PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public OperationResult login(@RequestBody(required = false) Login login, HttpServletResponse response){
-		OperationResult result = dao.login(new User(login.getUser(), login.getPassword()));
+		OperationResult result = null;
+		
+		if(login != null){
+			result = dao.login(new User(login.getUser(), login.getPassword()));
+		}
 		
 		if(result == null){
 			result = new OperationResult();
