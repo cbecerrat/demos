@@ -1,0 +1,81 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script>
+			//Switch sintax:
+			//	switch(expression) {
+			//		case x:
+			//			code block
+			//			break;
+			//		case y:
+			//			code block
+			//			break;
+			//		default:
+			//			code block
+			//	}
+			
+			//This is how it works:
+			// * The switch expression is evaluated once.
+			// * The value of the expression is compared with the values of each case.
+			// * If there is a match, the associated block of code is executed.
+
+			var yourGrade = undefined;
+			function assignGrade(value){
+				switch(value){
+					case "9": 
+						yourGrade = "Freshman";
+						break;
+					case "10": 
+						yourGrade = "Sophomore";
+						break;
+					case "11": 
+						yourGrade = "Junior";
+						break;
+					case "12": 
+						yourGrade = "Senior";
+						break;
+					default:
+						yourGrade = "Invalid";
+					
+				}
+				document.getElementById("yourGrade").innerHTML = yourGrade;
+			}
+			
+			//Assign a value using a ternary operator.
+			//Ternary sintax is:
+			//        condition ? exprT : exprF
+			//	condition
+			//		An expression whose value is used as a condition.
+			//	exprT, exprF
+			//		Expressions with values of any type. 
+			//			exprT is the result if evaluated condition is TRUE
+			//			exprF is the result if evaluated condition is FALSE
+			function sayHello(value){
+				document.getElementById("demo").innerHTML = value.trim().toUpperCase() === 'JOHN' ? 'Hello John!' : 'Hello Human!'
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div style="text-align: center; margin-top: 30px; font-size: 30px;">
+			<div>
+				<label>Which is your grade?</label>
+				<input onkeyup="assignGrade(this.value)" style="height: 40px;font-size: 30px;width: 100px; text-align: center;"></input>
+			</div>
+			
+			<div style="margin-top: 30px;">
+				<label style="color: blue;">&#34;yourGrade&#34;</label><label> variable is: </label><label style="color: blue;" id="yourGrade"></label>
+			</div>
+			
+			<div style="margin-top: 200px;">
+				<label>Which is your first name?</label>
+				<input onkeyup="sayHello(this.value)" style="height: 40px;font-size: 30px;width: 200px; text-align: center;"></input>
+				
+			</div>
+			
+			<div style="margin-top: 30px;">
+				<label style="color: blue;" id="demo"></label>
+			</div>
+		</div>
+	</body>
+</html>
